@@ -1,6 +1,45 @@
-.tweet-window tweet {
-    border-style: outset;
+.tweet-window {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+}
+
+.tweet-window .tweet {
+    border-style: inset;
     border-width: 2px;
     border-radius: 10px;
-    margin: 0 2em 0 2em;
+    width: 100%;
+    margin: 1em 2em 0 2em;
+    opacity: 0.8;
+}
+
+.tweet-window .tweet header {
+    font-size: 2em;
+    font-weight: 700;
+    padding: 5px;
+    background-color: antiquewhite;
+}
+
+.tweet-window .tweet header p {
+    float: right;
+    font-weight: 300;
+    font-size: 50%;
+}
+
+.tweet-window .tweet p {
+    font-size: 150%;
+    padding: 0 10px 0 10px;
+    margin: 10px 0 10px 0;
+}
+
+.tweet-window .tweet footer {
+    font-weight: 300;
+    border-top: 2px solid antiquewhite;
+    padding: 2px 2px 2px 5px;
+}
+
+.tweet:hover {
+    border-style: outset;
+    border-width: 4px;
+    opacity: 1;
 }
