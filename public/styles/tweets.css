@@ -1,0 +1,6 @@
+.tweet-window tweet {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    margin: 0 2em 0 2em;
+}

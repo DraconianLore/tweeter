@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $("#tweet-text").keyup(function() {
         // set sibling counter as target
-        let counter = this.parentNode.childNodes[5];
+        let counter = this.parentNode.querySelector(".counter");
 
         counter.innerHTML = 140 - this.value.length;
         if (this.value.length > 140) {
