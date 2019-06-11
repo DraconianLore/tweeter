@@ -3,9 +3,11 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -30,10 +32,7 @@ main {
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
-  
-  
 }
-
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
