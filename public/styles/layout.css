@@ -30,8 +30,7 @@ main {
   flex-direction: column;
   background-color: white;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 2em 10px 2em;
 }
 
 /*
