@@ -18,7 +18,22 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: 'Roboto Condensed', serif;
 }
+
+main {
+  width: 450px;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
