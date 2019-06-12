@@ -13,31 +13,36 @@
     width: 100%;
     opacity: 0.7;
     margin-bottom: 1em;
+    overflow: hidden;
 }
 
 .tweet img {
     float: left;
     padding-right: 5px;
+    border-radius: 50%;
 }
 
 .tweet-window .tweet header {
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 150%;
+    font-weight: 300;
     padding: 5px;
     background-color: antiquewhite;
-    line-height: 160%;
+    line-height: 225%;
 }
 
 .tweet-window .tweet header p {
     float: right;
     font-weight: 300;
-    font-size: 50%;
+    font-size: 0.6em;
+    line-height: 30px
 }
 
-.tweet-window .tweet p {
-    font-size: 150%;
+.tweet-window .body {
+    font-size: 1.5em;
     padding: 0 10px 0 10px;
     margin: 10px 0 10px 0;
+    width: 410px;
+    word-wrap: break-word;
 }
 
 .tweet-window .tweet footer {

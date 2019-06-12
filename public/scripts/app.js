@@ -42,7 +42,7 @@ function createTweetElement(newTweet) {
     // tweet header
     let tweetHeader = document.createElement('header');
     let tweetHeadImage = document.createElement('IMG');
-    tweetHeadImage.setAttribute("src", 'https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png');
+    tweetHeadImage.setAttribute("src", newTweet.user.avatars.small);
     tweetHeadImage.setAttribute("float", "left");
     tweetHeader.appendChild(tweetHeadImage);
     tweetHeader.innerHTML += newTweet.user.name;
@@ -53,6 +53,7 @@ function createTweetElement(newTweet) {
 
     let tweetP = document.createElement('p');
     tweetP.innerText = newTweet.content.text;
+    tweetP.classList.add('body');
     tweet.appendChild(tweetP);
 
     let tweetFooter = document.createElement('footer');
@@ -65,7 +66,6 @@ function createTweetElement(newTweet) {
     tweetFooter.appendChild(rightFoot);
     tweet.appendChild(tweetFooter);
 
-    // console.log(tweet);
     return tweet;
 }
 // Check document is ready... all jQuery after this point!
@@ -76,8 +76,9 @@ $(document).ready(function () {
         // takes return value and appends it to the tweets container
         const newTweets = document.createElement('div');
         for (let tweet of tweets) {
-            newTweets.appendChild(createTweetElement(tweet));
+            newTweets.prepend(createTweetElement(tweet));
         }
+        $("#tweeter-tweets").empty();
         $("#tweeter-tweets").append(newTweets)
     }
 
@@ -85,8 +86,17 @@ $(document).ready(function () {
     // catch post requests and redirect them through AJAX
     $("#sendTweet").submit(function (event) {
         event.preventDefault();
+        if (this.text.value.length > 140) {
+            $('#tweeter-tweets').prepend('Message is too long!<br/><br/>');
+            return;
+        }
         let dataToSend = $(this).serialize();
-        $.post("/tweets/", dataToSend, function () {
+        // reset form and reset counter
+        $(this).trigger('reset');
+        $(this.querySelector(".counter").innerText = '140');
+        
+        // post new data
+        $.post("/tweets/", dataToSend, () => {
             loadTweets(dataToSend) // reloads ALL tweets... hmm
         });
     })
@@ -97,5 +107,6 @@ $(document).ready(function () {
             });
 
     }
+    // load initial tweets from database
     loadTweets();
 })
