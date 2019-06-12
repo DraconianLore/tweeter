@@ -84,29 +84,45 @@ $(document).ready(function () {
 
     // renderTweets(data);
     // catch post requests and redirect them through AJAX
+    const $errorMessages = $('.tweet-error-message');
     $("#sendTweet").submit(function (event) {
         event.preventDefault();
+        // handle error messages
+        $errorMessages.empty();
         if (this.text.value.length > 140) {
-            $('#tweeter-tweets').prepend('Message is too long!<br/><br/>');
+            $errorMessages.append('Message is too long!');
+            return;
+        }
+        if (this.text.value.length === 0) {
+            $errorMessages.append('You forgot to write something!');
             return;
         }
         let dataToSend = $(this).serialize();
         // reset form and reset counter
         $(this).trigger('reset');
         $(this.querySelector(".counter").innerText = '140');
-        
+
         // post new data
         $.post("/tweets/", dataToSend, () => {
             loadTweets(dataToSend) // reloads ALL tweets... hmm
         });
     })
     function loadTweets() {
-        $.ajax('/tweets', { method: 'GET' })
-            .then(function (getTweets) {
+        $.get("/tweets")
+            .then((getTweets) => {
                 renderTweets(getTweets);
-            });
+            })
 
     }
+
+    const tweetArea = $(".new-tweet");
+    const tweetText = $("#tweet-text");
+    // nav bar button events
+    $("#compose-tweet").click(() => {
+        tweetArea.slideToggle(() => {
+            tweetText.focus();
+        });
+    })
     // load initial tweets from database
     loadTweets();
 })

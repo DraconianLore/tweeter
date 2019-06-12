@@ -24,3 +24,8 @@
 .counter {
     float: right;
 }
+.tweet-area-message {
+    display: inline;
+    margin: 0px;
+    
+}
