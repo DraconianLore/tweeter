@@ -10,11 +10,9 @@ function timeAgo(ts) {
     const nowTs = Math.floor(d.getTime() / 1000);
     const seconds = nowTs - ts;
 
-    // more that two days
     if (seconds > 2 * 24 * 3600) {
         return "a few days ago";
     }
-    // a day
     if (seconds > 24 * 3600) {
         return "yesterday";
     }
@@ -53,8 +51,15 @@ function createTweetElement(newTweet) {
     tweet.appendChild(tweetP);
 
     let tweetFooter = document.createElement('footer');
-    tweetFooter.innerText = timeAgo(newTweet.created_at);
+    let leftFoot = document.createElement('div');
+    leftFoot.innerText = timeAgo(newTweet.created_at);
+    let rightFoot = document.createElement('div');
+    rightFoot.innerHTML = "&#127988; &#128260; &#128153;";
+    rightFoot.classList.add('media-buttons');
+    tweetFooter.appendChild(leftFoot);
+    tweetFooter.appendChild(rightFoot);
     tweet.appendChild(tweetFooter);
+
     // console.log(tweet);
     return tweet;
 }

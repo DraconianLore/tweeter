@@ -14,10 +14,12 @@
     opacity: 0.7;
     margin-bottom: 1em;
 }
+
 .tweet img {
     float: left;
     padding-right: 5px;
 }
+
 .tweet-window .tweet header {
     font-size: 2em;
     font-weight: 700;
@@ -44,8 +46,15 @@
     padding: 2px 2px 2px 5px;
 }
 
-.tweet:hover {
-    border-style: outset;
-    border-width: 4px;
+.tweet footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tweet .media-buttons {
+    opacity: 0;
+}
+
+.tweet:hover, .tweet:hover .media-buttons {
     opacity: 1;
 }
