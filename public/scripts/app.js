@@ -5,29 +5,34 @@
  */
 
 // calculate time ago
-function timeAgo(ts) {
-    const d = new Date();
-    const nowTs = Math.floor(d.getTime() / 1000);
-    const seconds = nowTs - ts;
+function timeSince(date) {
 
-    if (seconds > 2 * 24 * 3600) {
-        return "a few days ago";
-    }
-    if (seconds > 24 * 3600) {
-        return "yesterday";
-    }
+    var seconds = Math.floor((new Date() - date) / 1000);
 
-    if (seconds > 3600) {
-        return "a few hours ago";
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years ago";
     }
-    if (seconds > 1800) {
-        return "Half an hour ago";
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months ago";
     }
-    if (seconds > 60) {
-        return Math.floor(seconds / 60) + " minutes ago";
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days ago";
     }
-    return "A long time ago"
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
 }
+
 
 // Create tweet
 function createTweetElement(newTweet) {
@@ -52,7 +57,7 @@ function createTweetElement(newTweet) {
 
     let tweetFooter = document.createElement('footer');
     let leftFoot = document.createElement('div');
-    leftFoot.innerText = timeAgo(newTweet.created_at);
+    leftFoot.innerText = timeSince(newTweet.created_at);
     let rightFoot = document.createElement('div');
     rightFoot.innerHTML = "&#127988; &#128260; &#128153;";
     rightFoot.classList.add('media-buttons');
@@ -63,53 +68,7 @@ function createTweetElement(newTweet) {
     // console.log(tweet);
     return tweet;
 }
-const data = [
-    {
-        "user": {
-            "name": "Newton",
-            "avatars": {
-                "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-                "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-                "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-            },
-            "handle": "@SirIsaac"
-        },
-        "content": {
-            "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-    },
-    {
-        "user": {
-            "name": "Descartes",
-            "avatars": {
-                "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-                "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-                "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-            },
-            "handle": "@rd"
-        },
-        "content": {
-            "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-    },
-    {
-        "user": {
-            "name": "Johann von Goethe",
-            "avatars": {
-                "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-                "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-                "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-            },
-            "handle": "@johann49"
-        },
-        "content": {
-            "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-        },
-        "created_at": 1461113796368
-    }
-];
+// Check document is ready... all jQuery after this point!
 $(document).ready(function () {
     function renderTweets(tweets) {
         // loops through tweets
@@ -121,13 +80,22 @@ $(document).ready(function () {
         }
         $("#tweeter-tweets").append(newTweets)
     }
-    
-renderTweets(data);
 
+    // renderTweets(data);
+    // catch post requests and redirect them through AJAX
+    $("#sendTweet").submit(function (event) {
+        event.preventDefault();
+        let dataToSend = $(this).serialize();
+        $.post("/tweets/", dataToSend, function () {
+            loadTweets(dataToSend) // reloads ALL tweets... hmm
+        });
+    })
+    function loadTweets() {
+        $.ajax('/tweets', { method: 'GET' })
+            .then(function (getTweets) {
+                renderTweets(getTweets);
+            });
 
+    }
+    loadTweets();
 })
-
-
-
-// var $tweet = createTweetElement(tweetData);
-// $("#tweeter-tweets").append($tweet);
