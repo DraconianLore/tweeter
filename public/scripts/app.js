@@ -38,7 +38,7 @@ function timeSince(date) {
 function createTweetElement(newTweet) {
     let tweet = document.createElement('article');
     tweet.classList.add('tweet');
-
+    
     // tweet header
     let tweetHeader = document.createElement('header');
     let tweetHeadImage = document.createElement('IMG');
