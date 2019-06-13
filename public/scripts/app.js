@@ -7,9 +7,9 @@
 // calculate time ago
 function timeSince(date) {
 
-    var seconds = Math.floor((new Date() - date) / 1000);
+    const seconds = Math.floor((new Date() - date) / 1000);
 
-    var interval = Math.floor(seconds / 31536000);
+    let interval = Math.floor(seconds / 31536000);
 
     if (interval > 1) {
         return interval + " years ago";
@@ -36,30 +36,30 @@ function timeSince(date) {
 
 // Create tweet
 function createTweetElement(newTweet) {
-    let tweet = document.createElement('article');
+    const tweet = document.createElement('article');
     tweet.classList.add('tweet');
 
     // tweet header
-    let tweetHeader = document.createElement('header');
-    let tweetHeadImage = document.createElement('IMG');
+    const tweetHeader = document.createElement('header');
+    const tweetHeadImage = document.createElement('IMG');
     tweetHeadImage.setAttribute("src", newTweet.user.avatars.small);
     tweetHeadImage.setAttribute("float", "left");
     tweetHeader.appendChild(tweetHeadImage);
     tweetHeader.innerHTML += newTweet.user.name;
-    let tweetHeadP = document.createElement('p');
+    const tweetHeadP = document.createElement('p');
     tweetHeadP.innerText = newTweet.user.handle;
     tweetHeader.appendChild(tweetHeadP);
     tweet.appendChild(tweetHeader);
 
-    let tweetP = document.createElement('p');
+    const tweetP = document.createElement('p');
     tweetP.innerText = newTweet.content.text;
     tweetP.classList.add('body');
     tweet.appendChild(tweetP);
 
-    let tweetFooter = document.createElement('footer');
-    let leftFoot = document.createElement('div');
+    const tweetFooter = document.createElement('footer');
+    const leftFoot = document.createElement('div');
     leftFoot.innerText = timeSince(newTweet.created_at);
-    let rightFoot = document.createElement('div');
+    const rightFoot = document.createElement('div');
     rightFoot.innerHTML = "&#127988; &#128260; &#128153;";
     rightFoot.classList.add('media-buttons');
     tweetFooter.appendChild(leftFoot);
@@ -75,7 +75,7 @@ $(document).ready(function () {
         // calls createTweetElement for each tweet
         // takes return value and appends it to the tweets container
         const newTweets = document.createElement('div');
-        for (let tweet of tweets) {
+        for (const tweet of tweets) {
             newTweets.prepend(createTweetElement(tweet));
         }
         $("#tweeter-tweets").empty();
@@ -104,7 +104,7 @@ $(document).ready(function () {
 
         // post new data
         $.post("/tweets/", dataToSend, () => {
-            loadTweets(dataToSend) // reloads ALL tweets... hmm
+            loadTweets() // reloads ALL tweets... hmm
         });
     })
     function loadTweets() {
