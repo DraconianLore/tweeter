@@ -82,7 +82,6 @@ $(document).ready(function () {
         $("#tweeter-tweets").append(newTweets)
     }
 
-    // renderTweets(data);
     // catch post requests and redirect them through AJAX
     const $errorMessages = $('.tweet-error-message');
     $("#sendTweet").submit(function (event) {
