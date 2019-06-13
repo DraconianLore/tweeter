@@ -38,7 +38,6 @@ function timeSince(date) {
 function createTweetElement(newTweet) {
     const tweet = document.createElement('article');
     tweet.classList.add('tweet');
-
     // tweet header
     const tweetHeader = document.createElement('header');
     const tweetHeadImage = document.createElement('IMG');
@@ -50,12 +49,12 @@ function createTweetElement(newTweet) {
     tweetHeadP.innerText = newTweet.user.handle;
     tweetHeader.appendChild(tweetHeadP);
     tweet.appendChild(tweetHeader);
-
+    // Tweet 'body'
     const tweetP = document.createElement('p');
     tweetP.innerText = newTweet.content.text;
     tweetP.classList.add('body');
     tweet.appendChild(tweetP);
-
+    // Tweet footer
     const tweetFooter = document.createElement('footer');
     const leftFoot = document.createElement('div');
     leftFoot.innerText = timeSince(newTweet.created_at);
