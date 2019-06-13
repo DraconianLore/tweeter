@@ -17,16 +17,19 @@
     line-height: 250%;
     padding-left: 10px;
 }
+
 #nav-bar .buttons {
     float: right;
     line-height: 200%;
     margin-top: 20px;
 }
+
 #nav-bar button {
     border-radius: 10px;
     background-color: rgb(184, 216, 236);
     border-style: hidden;
 }
+
 #nav-bar button:hover {
     border-style: inset;
 }

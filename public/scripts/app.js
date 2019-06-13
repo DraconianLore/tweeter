@@ -38,7 +38,7 @@ function timeSince(date) {
 function createTweetElement(newTweet) {
     let tweet = document.createElement('article');
     tweet.classList.add('tweet');
-    
+
     // tweet header
     let tweetHeader = document.createElement('header');
     let tweetHeadImage = document.createElement('IMG');
@@ -90,11 +90,11 @@ $(document).ready(function () {
         // handle error messages
         $errorMessages.empty();
         if (this.text.value.length > 140) {
-            $errorMessages.append('Message is too long!');
+            $errorMessages.append('&nbsp;&nbsp;Message is too long!&nbsp;&nbsp;');
             return;
         }
         if (this.text.value.length === 0) {
-            $errorMessages.append('You forgot to write something!');
+            $errorMessages.append('&nbsp;&nbsp;You forgot to write something!&nbsp;&nbsp;');
             return;
         }
         let dataToSend = $(this).serialize();
@@ -117,6 +117,7 @@ $(document).ready(function () {
 
     const tweetArea = $(".new-tweet");
     const tweetText = $("#tweet-text");
+    tweetArea.hide();
     // nav bar button events
     $("#compose-tweet").click(() => {
         tweetArea.slideToggle(() => {

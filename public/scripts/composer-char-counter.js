@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $("#tweet-text").keyup(function() {
+    $("#tweet-text").keyup(function () {
         // set sibling counter as target
         let counter = this.parentNode.querySelector(".counter");
 

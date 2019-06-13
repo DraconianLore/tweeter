@@ -24,8 +24,10 @@
 .counter {
     float: right;
 }
-.tweet-area-message {
+
+.tweet-error-message {
     display: inline;
     margin: 0px;
-    
+    background-color: orangered;
+    color: black;
 }
