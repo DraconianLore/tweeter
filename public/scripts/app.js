@@ -38,6 +38,7 @@ function timeSince(date) {
 function createTweetElement(newTweet) {
     const tweet = document.createElement('article');
     tweet.classList.add('tweet');
+    tweet.setAttribute('id', newTweet._id)
     // tweet header
     const tweetHeader = document.createElement('header');
     const tweetHeadImage = document.createElement('IMG');
@@ -59,7 +60,24 @@ function createTweetElement(newTweet) {
     const leftFoot = document.createElement('div');
     leftFoot.innerText = timeSince(newTweet.created_at);
     const rightFoot = document.createElement('div');
-    rightFoot.innerHTML = "&#127988; &#128260; &#128153;";
+    const flag = document.createElement('a');
+    flag.setAttribute('href', '#');
+    flag.classList.add('flag');
+    flag.innerHTML = "&#127988;";
+    rightFoot.appendChild(flag);
+    const retweet = document.createElement('a');
+    retweet.setAttribute('href', '#');
+    retweet.classList.add('retweet');
+    retweet.innerHTML = "&#128260;";
+    rightFoot.appendChild(retweet);
+    const like = document.createElement('a');
+    like.setAttribute('href', '#');
+    like.classList.add('like');
+    like.innerHTML = "&#128153;";
+    like.setAttribute("liked", newTweet.liked)
+    rightFoot.appendChild(like);
+    
+      
     rightFoot.classList.add('media-buttons');
     tweetFooter.appendChild(leftFoot);
     tweetFooter.appendChild(rightFoot);
@@ -102,7 +120,7 @@ $(document).ready(function () {
 
         // post new data
         $.post("/tweets/", dataToSend, () => {
-            loadTweets() // reloads ALL tweets... hmm
+            loadTweets() // reloads ALL tweets... 
         });
     })
     function loadTweets() {
@@ -116,6 +134,7 @@ $(document).ready(function () {
     const tweetArea = $(".new-tweet");
     const tweetText = $("#tweet-text");
     tweetArea.hide();
+    
     // nav bar button events
     $("#compose-tweet").click(() => {
         tweetArea.slideToggle(() => {

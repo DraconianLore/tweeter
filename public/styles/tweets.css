@@ -47,11 +47,28 @@
   justify-content: space-between;
 }
 .tweet-window .media-buttons {
-  opacity: 0;
+  opacity: 0.1;
+}
+.tweet-window .media-buttons a {
+  text-decoration: none;
+  padding-right: 10px;
+}
+.tweet-window .media-buttons .like:hover {
+  opacity: 0.5;
+}
+.tweet-window .media-buttons .retweet:hover {
+  opacity: 0.5;
+}
+.tweet-window .media-buttons .flag:hover {
+  opacity: 0.5;
 }
 
-.tweet:hover, .tweet:hover .media-buttons {
+.tweet:hover {
   opacity: 1;
+}
+
+.tweet:hover .media-buttons {
+  opacity: 0.7;
 }
 
 /*# sourceMappingURL=tweets.css.map */

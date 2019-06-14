@@ -47,7 +47,23 @@
         justify-content: space-between
 
     .media-buttons 
-        opacity: 0
+        opacity: 0.1
 
-.tweet:hover, .tweet:hover .media-buttons 
+        a
+            text-decoration: none
+            padding-right: 10px
+ 
+        .like:hover
+            opacity: 0.5
+
+        .retweet:hover
+            opacity: 0.5
+
+        .flag:hover
+            opacity: 0.5
+            
+.tweet:hover
     opacity: 1
+    
+.tweet:hover .media-buttons 
+        opacity: 0.7
