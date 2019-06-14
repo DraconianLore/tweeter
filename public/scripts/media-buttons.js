@@ -5,26 +5,35 @@ $(document).ajaxStop(function () {
         /*
             NEED TO GET THIS WORKING!!!
         */
-        const thisID = obj.parentNode.parentNode.parentNode.id
-        // const check = db.collection('tweets').find("_id", "ObjectId" + thisID);
-        // console.log(check)
-        if ($(obj).attr('liked') === "true") {
-            obj.style.opacity = 1;
+       // const check = db.collection('tweets').find("_id", "ObjectId" + thisID);
+       // console.log(check)
+       if ($(obj).attr('liked') === "true") {
+           obj.style.opacity = 1;
         } else {
             obj.style.opacity = 0.5;
         }
     })
+    // Like button
+    $(".like").click((event) => {
+        const likeHeart = event.currentTarget;
+        const thisID = likeHeart.parentNode.parentNode.parentNode.id
+        let updateDB;
+        if (likeHeart.style.opacity != 1) {
+            likeHeart.style.opacity = 1;
+            likeHeart.setAttribute('liked', 'true');
+            updateDB = {
+                'id' : thisID,
+                'status' : 'true'
+            }
+        } else {
+            likeHeart.style.opacity = 0.5
+            likeHeart.setAttribute('liked', 'false');
+            updateDB = {
+                'id' : thisID,
+                'status' : 'false'
+            }
+        }
+        $.post("/tweets/like", updateDB)
+    })
 })
-// Like button
-$(".like").click((event) => {
-    const likeHeart = event.currentTarget;
-    if (likeHeart.style.opacity != 1) {
-        likeHeart.style.opacity = 1;
-        likeHeart.setAttribute('liked', 'true');
-
-    } else {
-        likeHeart.style.opacity = 0.5
-        likeHeart.setAttribute('liked', 'false');
-    }
-})
-
+    
