@@ -1,0 +1,53 @@
+.tweet-window 
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 450px
+    padding: 2em 2em 1em 2em
+
+    .tweet 
+        border-style: inset
+        border-width: 2px
+        border-radius: 10px
+        width: 100%
+        opacity: 0.7
+        margin-bottom: 1em
+        overflow: hidden
+        
+        img 
+            float: left
+            padding-right: 5px
+            border-radius: 50%
+                
+    .tweet header 
+        font-size: 150%
+        font-weight: 300
+        padding: 5px
+        background-color: antiquewhite
+        line-height: 225%
+        
+        p 
+            float: right
+            font-weight: 300
+            font-size: 0.6em
+            line-height: 30px
+
+    .body 
+        font-size: 1.5em
+        padding: 0 10px 0 10px
+        margin: 10px 0 10px 0
+        width: 410px
+        word-wrap: break-word
+
+    footer 
+        font-weight: 300
+        border-top: 2px solid antiquewhite
+        padding: 2px 2px 2px 5px
+        display: flex
+        justify-content: space-between
+
+    .media-buttons 
+        opacity: 0
+
+.tweet:hover, .tweet:hover .media-buttons 
+    opacity: 1
