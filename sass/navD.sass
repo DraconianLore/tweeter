@@ -3,7 +3,7 @@
     padding-left: 2em
     padding-right: 2em
     width: 100%
-    background-color: $navBG
+    background-color: $navBGDark
     color: $navText
     position: fixed
     z-index: 1
@@ -12,6 +12,7 @@
         width: 80px
         height: 80px
         float: left
+        filter: invert(0.5)
 
     .header 
         font-size: 200%
@@ -25,8 +26,9 @@
 
     button 
         border-radius: 10px
-        background-color: $compose
+        background-color: $composeDark
         border-style: hidden
+        color: $textColourDark
 
     button:hover 
         border-style: inset

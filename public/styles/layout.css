@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   color: #244751;
-  background-color: #eee;
+  background-color: #eeeeee;
   font-family: "Roboto Condensed", serif;
   height: 100%;
   overflow: scroll;
@@ -29,6 +29,346 @@ main {
   background-color: white;
   align-items: center;
   padding: 130px 2em 10px 2em;
+}
+
+/* * Additional CSS can be defined below or in other CSS files, as per instructions
+ * */
+#nav-bar {
+  padding-left: 2em;
+  padding-right: 2em;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  position: fixed;
+  z-index: 1;
+}
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+#nav-bar .header {
+  font-size: 200%;
+  line-height: 250%;
+  padding-left: 10px;
+}
+#nav-bar .buttons {
+  float: right;
+  line-height: 200%;
+  margin-top: 20px;
+}
+#nav-bar button {
+  border-radius: 10px;
+  background-color: #b8ecec;
+  border-style: hidden;
+}
+#nav-bar button:hover {
+  border-style: inset;
+}
+
+.tweet-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  padding: 2em 2em 1em 2em;
+}
+.tweet-window .tweet {
+  border-style: inset;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0.7;
+  margin-bottom: 1em;
+  overflow: hidden;
+  background-color: #eeeeee;
+}
+.tweet-window .tweet img {
+  float: left;
+  padding-right: 5px;
+  border-radius: 50%;
+}
+.tweet-window .tweet header {
+  font-size: 150%;
+  font-weight: 300;
+  padding: 5px;
+  background-color: antiquewhite;
+  line-height: 225%;
+}
+.tweet-window .tweet header p {
+  float: right;
+  font-weight: 300;
+  font-size: 0.6em;
+  line-height: 30px;
+}
+.tweet-window .body {
+  font-size: 1.5em;
+  padding: 0 10px 0 10px;
+  margin: 10px 0 10px 0;
+  width: 410px;
+  word-wrap: break-word;
+}
+.tweet-window footer {
+  font-weight: 300;
+  border-top: 2px solid antiquewhite;
+  padding: 2px 2px 2px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.tweet-window .media-buttons {
+  opacity: 0.1;
+}
+.tweet-window .media-buttons a {
+  text-decoration: none;
+  padding-right: 10px;
+}
+.tweet-window .media-buttons .like:hover {
+  opacity: 0.5;
+}
+.tweet-window .media-buttons .retweet:hover {
+  opacity: 0.5;
+}
+.tweet-window .media-buttons .flag:hover {
+  opacity: 0.5;
+}
+.tweet-window .media-buttons .tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tweet-window .media-buttons .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 20px;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -15px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+.tweet-window .media-buttons .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tweet:hover {
+  opacity: 1;
+}
+
+.tweet:hover .media-buttons {
+  opacity: 0.7;
+}
+
+.new-tweet {
+  width: 100%;
+  background-color: antiquewhite;
+  padding: 5px 20px 5px 20px;
+  border-width: 2px;
+  border-style: outset;
+  justify-content: left;
+  border-radius: 10px;
+}
+.new-tweet h2 {
+  margin: 0px;
+  margin-top: 5px;
+}
+.new-tweet textarea {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+.new-tweet .counter {
+  float: right;
+}
+.new-tweet input {
+  background-color: #b8ecec;
+  color: #244751;
+}
+.new-tweet textarea {
+  background-color: white;
+  color: #244751;
+}
+.new-tweet textarea:focus {
+  outline-color: #eeeeee;
+}
+.new-tweet .tweet-error-message {
+  display: inline;
+  margin: 0px;
+  background-color: orange;
+  color: black;
+}
+
+/* * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * * https://css-tricks.com/international-box-sizing-awareness-day/
+ * * Do not modify these two selectors, please
+ * */
+/* * Global layout stuff
+ * */
+body.dark {
+  margin: 0;
+  color: antiquewhite;
+  background-color: #444444;
+  font-family: "Roboto Condensed", serif;
+  height: 100%;
+  overflow: scroll;
+}
+body.dark main {
+  max-width: 450px;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  background-color: #3f3f3f;
+  align-items: center;
+  padding: 130px 2em 10px 2em;
+}
+body.dark #nav-bar {
+  padding-left: 2em;
+  padding-right: 2em;
+  width: 100%;
+  background-color: #333333;
+  color: #e8fdff;
+  position: fixed;
+  z-index: 1;
+}
+body.dark #nav-bar .logo {
+  width: 80px;
+  height: 80px;
+  float: left;
+  filter: invert(0.5);
+}
+body.dark #nav-bar .header {
+  font-size: 200%;
+  line-height: 250%;
+  padding-left: 10px;
+}
+body.dark #nav-bar .buttons {
+  float: right;
+  line-height: 200%;
+  margin-top: 20px;
+}
+body.dark #nav-bar button {
+  border-radius: 10px;
+  background-color: darkslategrey;
+  border-style: hidden;
+  color: antiquewhite;
+}
+body.dark #nav-bar button:hover {
+  border-style: inset;
+}
+body.dark .tweet-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  padding: 2em 2em 1em 2em;
+}
+body.dark .tweet-window .tweet {
+  border-style: inset;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0.7;
+  margin-bottom: 1em;
+  overflow: hidden;
+  background-color: #444444;
+}
+body.dark .tweet-window .tweet img {
+  float: left;
+  padding-right: 5px;
+  border-radius: 50%;
+}
+body.dark .tweet-window .tweet header {
+  font-size: 150%;
+  font-weight: 300;
+  padding: 5px;
+  background-color: #632121;
+  line-height: 225%;
+}
+body.dark .tweet-window .tweet header p {
+  float: right;
+  font-weight: 300;
+  font-size: 0.6em;
+  line-height: 30px;
+}
+body.dark .tweet-window .body {
+  font-size: 1.5em;
+  padding: 0 10px 0 10px;
+  margin: 10px 0 10px 0;
+  width: 410px;
+  word-wrap: break-word;
+}
+body.dark .tweet-window footer {
+  font-weight: 300;
+  border-top: 2px solid #632121;
+  padding: 2px 2px 2px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+body.dark .tweet-window .media-buttons {
+  opacity: 0.1;
+}
+body.dark .tweet-window .media-buttons a {
+  text-decoration: none;
+  padding-right: 10px;
+}
+body.dark .tweet-window .media-buttons .like:hover {
+  opacity: 0.5;
+}
+body.dark .tweet-window .media-buttons .retweet:hover {
+  opacity: 0.5;
+}
+body.dark .tweet-window .media-buttons .flag:hover {
+  opacity: 0.5;
+}
+body.dark .tweet:hover {
+  opacity: 1;
+}
+body.dark .tweet:hover .media-buttons {
+  opacity: 0.7;
+}
+body.dark .new-tweet {
+  width: 100%;
+  background-color: #632121;
+  padding: 5px 20px 5px 20px;
+  border-width: 2px;
+  border-style: outset;
+  justify-content: left;
+  border-radius: 10px;
+}
+body.dark .new-tweet h2 {
+  margin: 0px;
+  margin-top: 5px;
+}
+body.dark .new-tweet textarea {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+body.dark .new-tweet .counter {
+  float: right;
+}
+body.dark .new-tweet input {
+  background-color: darkslategrey;
+  color: antiquewhite;
+}
+body.dark .new-tweet textarea {
+  background-color: #3f3f3f;
+  color: antiquewhite;
+}
+body.dark .new-tweet textarea:focus {
+  outline-color: #444444;
+}
+body.dark .new-tweet .tweet-error-message {
+  display: inline;
+  margin: 0px;
+  background-color: orange;
+  color: black;
 }
 
 /* * Additional CSS can be defined below or in other CSS files, as per instructions

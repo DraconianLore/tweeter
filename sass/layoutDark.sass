@@ -1,0 +1,39 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+
+
+
+
+
+/*
+ * Global layout stuff
+ */
+
+body.dark
+  margin: 0
+  color: $textColourDark
+  background-color: $outsideColourDark
+  font-family: 'Roboto Condensed', serif
+  height: 100%
+  overflow: scroll
+
+  main 
+    max-width: 450px
+    display: flex
+    margin: auto
+    flex-direction: column
+    background-color: $tweetboxColourDark
+    align-items: center
+    padding: 130px 2em 10px 2em
+
+  @import 'navD.sass'
+  @import 'tweetsD.sass'
+  @import 'new-tweetD.sass'
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+

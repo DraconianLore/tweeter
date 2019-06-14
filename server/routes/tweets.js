@@ -17,7 +17,7 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.post("/like", function(req, res) {
+  tweetsRoutes.put("/like", function(req, res) {
       const tweetID = req.body.id;
     const tweetStatus = req.body.status
     DataHelpers.likeTweet(tweetID, tweetStatus, (err) => {

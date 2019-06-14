@@ -4,9 +4,25 @@
  * Do not modify these two selectors, please
  */
 
+$outside-colour: #eeeeee
+$tweetbox-colour: white
+$navBG: #00a087
+$navText: #e8fdff
+$compose: #b8ecec
+$errorMessages: orange
+$tHeaderBG: antiquewhite
+$textColour: #244751
+$outsideColourDark: #444444
+$tweetboxColourDark: #3f3f3f
+$navBGDark: #333333
+$navTextDark: antiquewhite
+$composeDark: darkslategrey
+$errorMessagesDark: orange
+$tHeaderBGDark: #632121
+$textColourDark: antiquewhite
+
 html 
   box-sizing: border-box
-
 
 *, *:before, *:after 
   box-sizing: inherit
@@ -18,8 +34,8 @@ html
 
 body 
   margin: 0
-  color: #244751
-  background-color: #eee
+  color: $textColour
+  background-color: $outside-colour
   font-family: 'Roboto Condensed', serif
   height: 100%
   overflow: scroll
@@ -30,7 +46,7 @@ main
   display: flex
   margin: auto
   flex-direction: column
-  background-color: white
+  background-color: $tweetbox-colour
   align-items: center
   padding: 130px 2em 10px 2em
 
@@ -38,3 +54,8 @@ main
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+@import 'nav.sass'
+@import 'tweets.sass'
+@import 'new-tweet.sass'
+@import 'layoutDark.sass'

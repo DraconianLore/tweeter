@@ -72,9 +72,12 @@ function createTweetElement(newTweet) {
     rightFoot.appendChild(retweet);
     const like = document.createElement('a');
     like.setAttribute('href', '#');
-    like.classList.add('like');
+    like.classList.add('like','tooltip');
     like.innerHTML = "&#128153;";
     like.setAttribute("liked", newTweet.liked)
+    const likes = document.createElement('div');
+    likes.classList.add('tooltiptext');
+    like.appendChild(likes);
     rightFoot.appendChild(like);
     
       
@@ -140,6 +143,13 @@ $(document).ready(function () {
         tweetArea.slideToggle(() => {
             tweetText.focus();
         });
+    })
+    $("#colour-scheme").click(() => {
+        if ($('body').hasClass('dark')) {
+            $('body').removeClass('dark');
+        }else {
+            $('body').addClass('dark');
+        }
     })
     // load initial tweets from database
     loadTweets();

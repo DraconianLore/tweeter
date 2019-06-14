@@ -1,16 +1,13 @@
 // Check document is ready... all jQuery after this point!
 $(document).ajaxStop(function () {
-   
+
     $('.like').each((i, obj) => {
-        /*
-            NEED TO GET THIS WORKING!!!
-        */
-       // const check = db.collection('tweets').find("_id", "ObjectId" + thisID);
-       // console.log(check)
-       if ($(obj).attr('liked') === "true") {
-           obj.style.opacity = 1;
+        if ($(obj).attr('liked') === "true") {
+            obj.style.opacity = 1;
+            obj.childNodes[1].innerText = 1;
         } else {
             obj.style.opacity = 0.5;
+            obj.childNodes[1].innerText = 0;
         }
     })
     // Like button
@@ -21,19 +18,26 @@ $(document).ajaxStop(function () {
         if (likeHeart.style.opacity != 1) {
             likeHeart.style.opacity = 1;
             likeHeart.setAttribute('liked', 'true');
+            likeHeart.childNodes[1].innerText = 1;
             updateDB = {
-                'id' : thisID,
-                'status' : 'true'
+                'id': thisID,
+                'status': 'true'
             }
         } else {
             likeHeart.style.opacity = 0.5
             likeHeart.setAttribute('liked', 'false');
+            likeHeart.childNodes[1].innerText = 0;
             updateDB = {
-                'id' : thisID,
-                'status' : 'false'
+                'id': thisID,
+                'status': 'false'
             }
         }
-        $.post("/tweets/like", updateDB)
+
+        $.ajax({
+            url: '/tweets/like',
+            type: 'PUT',
+            data: updateDB
+        });
     })
 })
-    
+
