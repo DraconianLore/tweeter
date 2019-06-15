@@ -72,15 +72,15 @@ function createTweetElement(newTweet) {
     rightFoot.appendChild(retweet);
     const like = document.createElement('a');
     like.setAttribute('href', '#');
-    like.classList.add('like','tooltip');
+    like.classList.add('like', 'tooltip');
     like.innerHTML = "&#128153;";
     like.setAttribute("liked", newTweet.liked)
     const likes = document.createElement('div');
     likes.classList.add('tooltiptext');
     like.appendChild(likes);
     rightFoot.appendChild(like);
-    
-      
+
+
     rightFoot.classList.add('media-buttons');
     tweetFooter.appendChild(leftFoot);
     tweetFooter.appendChild(rightFoot);
@@ -138,7 +138,7 @@ $(document).ready(function () {
     const tweetArea = $(".new-tweet");
     const tweetText = $("#tweet-text");
     tweetArea.hide();
-    
+
     // nav bar button events
     $("#compose-tweet").click(() => {
         tweetArea.slideToggle(() => {
@@ -148,7 +148,7 @@ $(document).ready(function () {
     $("#colour-scheme").click(() => {
         if ($('body').hasClass('dark')) {
             $('body').removeClass('dark');
-        }else {
+        } else {
             $('body').addClass('dark');
         }
     })
