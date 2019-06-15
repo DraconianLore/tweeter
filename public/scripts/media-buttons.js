@@ -12,6 +12,7 @@ $(document).ajaxStop(function () {
     })
     // Like button
     $(".like").click((event) => {
+        event.preventDefault();
         const likeHeart = event.currentTarget;
         const thisID = likeHeart.parentNode.parentNode.parentNode.id
         let updateDB;
