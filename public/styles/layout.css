@@ -268,6 +268,7 @@ body.dark .tweet-window {
 }
 body.dark .tweet-window .tweet {
   border-style: inset;
+  border-color: black;
   border-width: 2px;
   border-radius: 10px;
   width: 100%;

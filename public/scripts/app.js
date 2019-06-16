@@ -98,9 +98,9 @@ $(document).ready(function () {
         for (const tweet of tweets) {
             newTweets.prepend(createTweetElement(tweet));
         }
-        $('#tweeter-tweets').html(newTweets)
-        // $("#tweeter-tweets").empty();
-        // $("#tweeter-tweets").append(newTweets)
+        
+        $("#tweeter-tweets").empty();
+        $("#tweeter-tweets").append(newTweets)
     }
 
     // catch post requests and redirect them through AJAX
